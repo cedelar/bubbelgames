@@ -1,0 +1,66 @@
+body {
+  background-image: url("../images/background/hout.jpg");
+
+  /* Center and scale the image nicely */
+  background-position: top center;
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 30px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.cardwrapper {
+  margin-bottom: -15px;
+}
+
+.teamwrapper {
+  border-style: solid;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.card {
+  padding: 10px;
+  border-radius: 15px;
+  width: 120px;
+  margin-right: 50px;
+  transform: rotate(90deg);
+}
+
+.acecard {
+  padding: 10px;
+  border-radius: 15px;
+  width: 120px;
+  margin-right: 50px;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  text-align: center;
+  width: 20%;
+  color: white;
+  opacity: 0.65;
+  background-color: #121212;
+  font-size: 25px;
+}
+
+.middle {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

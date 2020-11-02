@@ -1,0 +1,14 @@
+{
+  "name": "bubbelgames_v1",
+  "description": "BubbelGames V1.0",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "main": "server/server.js",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "md5": "^2.3.0",
+    "socketio": "^1.0.0"
+  }
+}

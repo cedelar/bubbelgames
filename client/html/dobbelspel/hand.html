@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Dobbelspel: Hand</title>
+    <link href="../../css/buttonconsoleLayout.css" rel="stylesheet" />
+    <link
+      rel="icon"
+      href="../../images/logo/toppic.png"
+      type="image/icon type"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="top">
+      <h1>Dobbelspel</h1>
+    </div>
+    <div class="middle" id="middle">
+      <label for="nDice">Aantal Dobbelstenen:</label>
+      <input type="text" id="nDice" />
+    </div>
+    <div class="bottom">
+      <div id="buttonwrapper">
+        <button type="button" class="button" id="dobbelButton">Dobbel</button>
+      </div>
+    </div>
+    <script src="../../js/settings.js"></script>
+    <script src="../../js/dobbelspel/hand.js"></script>
+  </body>
+</html>

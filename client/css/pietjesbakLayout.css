@@ -1,0 +1,65 @@
+body {
+  background-image: url("../images/background/hout.jpg");
+
+  /* Center and scale the image nicely */
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bak {
+  /* border-style: solid; */
+  background-image: url("../images/background/pietjesbak_solo.png");
+
+  /* Center and scale the image nicely */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 85%;
+  height: 90vh;
+}
+
+#imagewrapper {
+  padding: 24%;
+  padding-top: 28%;
+  /* border-style: solid; */
+}
+
+.dice {
+  border-radius: 25%;
+  height: 6.5%;
+  width: 6.5%;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  text-align: center;
+  width: 20%;
+}
+
+.right {
+  text-align: left;
+  /*height: 25vh;*/
+}
+
+.side {
+  width: 20%;
+  color: white;
+  opacity: 0.65;
+  background-color: #121212;
+  font-size: 18px;
+}
+
+.middle {
+  width: 51%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

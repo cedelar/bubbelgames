@@ -1,0 +1,55 @@
+body {
+  background-image: url("../images/background/hout.jpg");
+
+  /* Center and scale the image nicely */
+  background-position: top center;
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+}
+
+#cardwrapper {
+  padding: 50px;
+  /*border-style: solid;*/
+}
+
+#slokken {
+  padding-bottom: 30px;
+  font-size: 18px;
+  /*border-style: solid;*/
+}
+
+#lastcard {
+  padding: 10px;
+  border-style: solid;
+}
+
+.card {
+  padding: 10px;
+  border-radius: 15px;
+  width: 120px;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  text-align: center;
+  width: 20%;
+  color: white;
+  opacity: 0.65;
+  background-color: #121212;
+  font-size: 25px;
+}
+
+.middle {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

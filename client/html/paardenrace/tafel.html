@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Paardenrace: Tafel</title>
+    <link href="../../css/paardenracetableLayout.css" rel="stylesheet" />
+    <link rel="icon" href="../../images/logo/toppic.png" type="image/icon type" />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="column side left" id = "colom">
+        <h1>Paardenrace</h1>
+        <h2>Harten:</h2>
+        <div class="teamwrapper" id="vak1"></div>
+        <h2>Klaveren:</h2>
+        <div class="teamwrapper" id="vak2"></div>
+        <h2>Ruiten:</h2>
+        <div class="teamwrapper" id="vak3"></div>
+        <h2>Schoppen:</h2>
+        <div class="teamwrapper" id="vak4"></div>
+        <div id="uitslag"></div>
+      </div>
+      <div class="column middle">
+          <div class="cardwrapper" id="rij1"></div>
+          <div class="cardwrapper" id="rij2"></div>
+          <div class="cardwrapper" id="rij3"></div>
+          <div class="cardwrapper" id="rij4"></div>
+          <div class="cardwrapper" id="rij5"></div>
+      </div>
+    <script src="../../js/settings.js"></script>
+    <script src="../../js/paardenrace/tafel.js"></script>
+  </body>
+</html>

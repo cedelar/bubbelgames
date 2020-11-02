@@ -38,7 +38,7 @@ fetch("./../../auth/username/" + username + "/token/" + token)
         document
           .getElementById("dobbelButton")
           .addEventListener("click", () => {
-            let name = localStorage.getItem("login");
+            let name = localStorage.getItem("login_name");
             let nDice = checkNDice(document.getElementById("nDice").value);
             socket.emit("dobbelclientmessage", { name: name, nDice: nDice });
           });

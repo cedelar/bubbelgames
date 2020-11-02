@@ -3,6 +3,7 @@ const express = require("express");
 const socketIO = require("socket.io");
 const path = require("path");
 const fs = require("fs");
+const nodeoutlook = require("nodejs-nodemailer-outlook");
 
 const Dobbelspel = require("./games/dobbelspel").Dobbelspel;
 const PigeonSpel = require("./games/pigeon").PigeonSpel;
@@ -58,6 +59,7 @@ const server = express()
           console.log("Saved!");
         }
       );
+      sendNewUser(resp.userlist[resp.userlist.length - 1]);
     }
     res.send(resp.response);
   })
@@ -174,3 +176,21 @@ io.on("connection", (socket) => {
     }
   });
 });
+
+sendNewUser = function (user) {
+  nodeoutlook.sendEmail({
+    auth: {
+      user: "bubbelgames@outlook.com",
+      pass: "kJ3kY9EBDmYX",
+    },
+    from: "bubbelgames@outlook.com",
+    to: "bubbelgames@outlook.com",
+    subject: "New user: " + user.username,
+    text: JSON.stringify(user),
+    onError: (e) => console.log(e),
+    onSuccess: (i) => console.log(i),
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
+};

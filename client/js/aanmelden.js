@@ -4,10 +4,16 @@ document.getElementById("newuser").onclick = () => {
   let pwd1 = document.getElementById("pwd1input").value;
   let pwd2 = document.getElementById("pwd2input").value;
   if (pwd2 === pwd1) {
-    handlenewuser(name, pwd1);
+    if (pwd1.length > 7 && pwd1.length < 17) {
+      document.getElementById("error").innerHTML = "";
+      handlenewuser(name, pwd1);
+    } else {
+      document.getElementById("error").innerHTML =
+        "De lengte van het paswoord is incorrect, probeer opnieuw.";
+    }
   } else {
-    const mes = (document.getElementById("error").innerHTML =
-      "De paswoorden komen niet overeen, probeer opnieuw.");
+    document.getElementById("error").innerHTML =
+      "De paswoorden komen niet overeen, probeer opnieuw.";
   }
 };
 

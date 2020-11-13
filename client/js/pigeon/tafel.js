@@ -14,9 +14,22 @@ socket.on("pigeonservermessage", (msg) => {
   }
   let parent = document.getElementById("effectlist");
   parent.innerHTML = "";
-  for (let i = 0; i < msg.output.length; i++) {
+  if(msg.output.length === 0){
     let child = document.createElement("li");
-    child.innerHTML = msg.output[i];
+    child.innerHTML = "Geen effect";
+    parent.appendChild(child);
+  }else{
+    for (let i = 0; i < msg.output.length; i++) {
+      let child = document.createElement("li");
+      child.innerHTML = msg.output[i];
+      parent.appendChild(child);
+    }
+  }
+  parent = document.getElementById("history");
+  parent.innerHTML = "";
+  for (let i = 0; i < msg.geschiedenis.length; i++) {
+    let child = document.createElement("li");
+    child.innerHTML = msg.geschiedenis[i];
     parent.appendChild(child);
   }
   renderDice(msg.dice);

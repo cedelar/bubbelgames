@@ -79,7 +79,15 @@ berekenAantalSlokken = function (nMexico) {
 
 drieeenGesmeten = function (dice) {
   const stenen = dice.sort((a, b) => a - b);
-  if (stenen[0] === 1 && stenen[1] === 3) {
+  if (stenen[0] === 1  && stenen[1] === 3) {
+    return true;
+  }
+  return false;
+};
+
+drietweeGesmeten = function (dice) {
+  const stenen = dice.sort((a, b) => a - b);
+  if ( stenen[0] === 2 && stenen[1] === 3) {
     return true;
   }
   return false;
@@ -88,12 +96,15 @@ drieeenGesmeten = function (dice) {
 slokkenstring = function (dice) {
   if (this.drieeenGesmeten(dice)) {
     return "31 geworpen, 1 slok!";
-  } else {
+  } else if (this.drietweeGesmeten(dice)) {
+    return "32 geworpen, 1 slok!";
+  } else{
     return "";
   }
 };
 
 socket.on("mexicoservermessage", (msg) => {
+  console.log(msg);
   if (!(msg.return === "NOK")) {
     switch (msg.source) {
       case "reset":

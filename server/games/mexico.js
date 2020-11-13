@@ -161,7 +161,9 @@ class MexicoSpel extends Dobbelspel {
         source: "nextSpeler",
         return: "OK",
         spelers: this._spelers,
+        laagst: this._laagst,
         aantalMexicos: this._aantalMexico,
+        dice: this.bekijk(),
       };
     }
   }

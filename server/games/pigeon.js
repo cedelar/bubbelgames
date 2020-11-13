@@ -1,5 +1,7 @@
 const Dobbelspel = require("./dobbelspel").Dobbelspel;
 
+const geschSize = 10;
+
 intArrayToString = function (arr) {
   return arr.reduce((prev, curr) => prev + " " + curr, "");
 };
@@ -7,6 +9,7 @@ intArrayToString = function (arr) {
 class PigeonSpel extends Dobbelspel {
   constructor() {
     super(2);
+    this._geschiedenis = [];
     //this.setAantalDobbelstenen(2);
     this._pigeon = "";
   }
@@ -35,11 +38,16 @@ class PigeonSpel extends Dobbelspel {
   speel(spelerNaam) {
     this.dobbel();
     let r = this._controle(spelerNaam);
+    this._geschiedenis.unshift(spelerNaam);
+    if(this._geschiedenis.length > geschSize){
+      this._geschiedenis.pop();
+    }
     return {
       name: spelerNaam,
       dice: this.bekijk(),
       output: r,
       pigeon: this._pigeon,
+      geschiedenis: this._geschiedenis,
     };
   }
 

@@ -42,6 +42,7 @@ class Fuckdendealer extends Kaartspel {
       dealerIndex: this._dealerIndex,
       playingIndex: this._playingIndex,
       topcard: this.peek(),
+      foutAantal: this._dealerCount,
     };
   }
 

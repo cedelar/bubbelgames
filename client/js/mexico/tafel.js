@@ -31,7 +31,7 @@ updateSpelInfoVeld = function (text) {
   parent.appendChild(child2);
 };
 
-updateScorebord = function (score, nMexico) {
+updateScorebord = function (score, nMexico, nWorpen) {
   let parent = document.getElementById("scorewrapper");
   parent.innerHTML = "";
   let child1 = document.createElement("p");
@@ -61,12 +61,17 @@ updateScorebord = function (score, nMexico) {
   }
   child2.innerHTML = s;
   parent.appendChild(child2);
+
+  let child3 = document.createElement("p");
+  child3.innerHTML = "Aantal worpen: " + nWorpen;
+  parent.appendChild(child3);
+  
 };
 
 resetView = function () {
   updateSpelerLijst([]);
   updateSpelInfoVeld(["Start met spelers aanmelden!", ""]);
-  updateScorebord({ speler: [], score: 601 }, 0);
+  updateScorebord({ speler: [], score: 601 }, 0, 0);
 };
 
 berekenAantalSlokken = function (nMexico) {
@@ -138,7 +143,7 @@ socket.on("mexicoservermessage", (msg) => {
           slokkenstring(msg.dice),
         ]);
         updateSpelerLijst(msg.spelers);
-        updateScorebord(msg.laagst, msg.aantalMexicos);
+        updateScorebord(msg.laagst, msg.aantalMexicos, msg.worpen);
         renderDice(msg.dice);
         break;
       case "status":
@@ -166,7 +171,7 @@ socket.on("mexicoservermessage", (msg) => {
           ]);
         }
 
-        updateScorebord(msg.laagst, msg.aantalMexicos);
+        updateScorebord(msg.laagst, msg.aantalMexicos, msg.worpen);
         updateSpelerLijst([]);
     }
   }

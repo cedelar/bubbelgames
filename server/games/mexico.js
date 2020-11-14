@@ -20,7 +20,7 @@ class MexicoSpel extends Dobbelspel {
   }
 
   _replay() {
-    this._spelers = Array.from(this._oldSpelers);
+    this._spelers = this._handleLoser(Array.from(this._oldSpelers));
     this._playing = true;
     this._laagst = { speler: [], score: 601 };
     this._aantalMexico = 0;
@@ -29,6 +29,15 @@ class MexicoSpel extends Dobbelspel {
     this._eersteSpeler = true;
     this._endflag = false;
     return { source: "replay", return: "OK", spelers: this._spelers };
+  }
+
+  _handleLoser(spelers){
+    let loserIndex = spelers.indexOf(this._laagst.speler[0]);
+    if(loserIndex > -1){
+      return spelers.splice(loserIndex, spelers.length).concat(spelers.splice(0, loserIndex));
+    }else{
+      return spelers;
+    }
   }
 
   _addSpeler(naam) {
@@ -110,6 +119,7 @@ class MexicoSpel extends Dobbelspel {
         laagst: this._laagst,
         aantalMexicos: this._aantalMexico,
         dice: this.bekijk(),
+        worpen: this._maxAantalDobbels,
       };
     } else {
       return { source: "nextSpeler", return: "NOK" };
@@ -135,6 +145,7 @@ class MexicoSpel extends Dobbelspel {
           dice: this.bekijk(),
           score: this._gesmetenScore(),
           spelers: this._spelers,
+          worpen: this._maxAantalDobbels,
         };
       }
     } else {
@@ -151,6 +162,7 @@ class MexicoSpel extends Dobbelspel {
         laagst: this._laagst,
         aantalMexicos: this._aantalMexico,
         spelers: this._spelers,
+        worpen: this._maxAantalDobbels,
       };
     } else {
       this._spelers = this._laagst.speler;
@@ -164,6 +176,7 @@ class MexicoSpel extends Dobbelspel {
         laagst: this._laagst,
         aantalMexicos: this._aantalMexico,
         dice: this.bekijk(),
+        worpen: this._maxAantalDobbels,
       };
     }
   }
@@ -175,6 +188,7 @@ class MexicoSpel extends Dobbelspel {
       spelers: this._spelers,
       actief: this._playing,
       end: this._endflag,
+      worpen: this._maxAantalDobbels,
     };
   }
 

@@ -46,7 +46,7 @@ updateView = function (msg) {
     let child = document.createElement("div");
     let text = spelers[i];
     if (msg.dealerIndex === i) {
-      text += " (Dealer)";
+      text += " (Dealer, " + msg.foutAantal +  "x fout)";
     }
     if (msg.playingIndex === i) {
       text += " (Playing)";

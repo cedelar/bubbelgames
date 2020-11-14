@@ -65,6 +65,15 @@ class Kaartspel {
     return kaart;
   }
 
+  placeholder(){
+    return {
+      soort: "X",
+      getal: 0,
+      image: "../../images/cards/back.png",
+      backimage: "../../images/cards/back.png",
+    }
+  }
+
   isEmpty() {
     if (this._kaarten.length === 0) {
       return true;

@@ -18,6 +18,7 @@ class Paardenrace extends Kaartspel {
       zijkaarten: this._zijKaarten,
       omgedraaid: this._omgedraaid,
       end: this._isEnd,
+      laatsteKaart: this._laatsteKaart,
     };
   }
 
@@ -42,6 +43,7 @@ class Paardenrace extends Kaartspel {
     this._zijKaarten = [...Array(this._lengte)].map((e) => this.draw());
     this._omgedraaid = [...Array(this._lengte)].map((e) => false);
     this._isEnd = false;
+    this._laatsteKaart = this.placeholder();
     return this._statusOK("reset");
   }
 
@@ -110,8 +112,8 @@ class Paardenrace extends Kaartspel {
 
   _next() {
     if (this._actief) {
-      let kaart = this.draw();
-      let index = this._azen.map((e) => e.soort).indexOf(kaart.soort);
+      this._laatsteKaart = this.draw();
+      let index = this._azen.map((e) => e.soort).indexOf(this._laatsteKaart.soort);
       this._aasIndex[index]++;
       this._fixCheckpoint();
       if (this._aasIndex.includes(this._lengte + 1)) {

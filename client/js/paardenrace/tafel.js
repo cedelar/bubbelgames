@@ -15,6 +15,7 @@ updateView = function (msg) {
     for (let j = 0; j < msg.zijkaarten.length + 2; j++) {
       let child = document.createElement("img");
       if (msg.aasIndex[i] === j) {
+        console.log(msg.aasIndex[i]);
         child.setAttribute("src", msg.azen[i].image);
       }
       child.setAttribute("class", "acecard");
@@ -93,6 +94,13 @@ updateView = function (msg) {
     }
     parent.appendChild(child);
   }
+
+  parent = document.getElementById("kaart");
+  parent.innerHTML = "";
+  let child = document.createElement("img");
+  child.setAttribute("src", msg.laatsteKaart.image);   
+  child.setAttribute("class", "lastcard");
+  parent.appendChild(child);
 };
 
 // Join a channel
